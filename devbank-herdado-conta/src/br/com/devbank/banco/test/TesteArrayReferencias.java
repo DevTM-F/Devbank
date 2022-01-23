@@ -1,0 +1,34 @@
+package br.com.devbank.banco.test;
+
+import br.com.devbank.banco.modelo.Cliente;
+import br.com.devbank.banco.modelo.Conta;
+import br.com.devbank.banco.modelo.ContaCorrente;
+import br.com.devbank.banco.modelo.ContaPoupanca;
+
+public class TesteArrayReferencias {
+
+	public static void main(String[] args) {
+		
+		//int[] idades = new int[5]; 
+		Conta[] referencias = new Conta[5];
+		ContaCorrente cc1 = new ContaCorrente(22, 11);		
+		referencias[0] = cc1;
+		
+		ContaPoupanca cc2 = new ContaPoupanca(22, 22);		
+		referencias[1] = cc2;
+		
+		Object cliente = new Cliente();
+		referencias[2] = (Conta) cliente;
+		
+		//System.out.println(cc2.getNumero());
+		
+		/*
+		 * Object referenciaGenerica = contas[1];
+		 * System.out.println(referenciaGenerica.getNumero());
+		 */
+		
+		ContaPoupanca ref = (ContaPoupanca) referencias[1]; // type cast
+		System.out.println(cc2.getNumero());
+		System.out.println(ref.getNumero());
+	}
+}
